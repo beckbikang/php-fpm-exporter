@@ -1,0 +1,100 @@
+#General
+/local
+/vendor
+/composer.lock
+/composer.local.*
+/composer.phar
+/coverage.clover
+.DS_Store
+Thumbs.db
+/.idea
+/builds
+arcanist/.phutil_module_cache
+composer.phar
+/node_modules
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.env
+api/src/logs
+api/src/sfapilog
+api/src/sfDataEvent
+api/src/newEvent
+.vscode
+
+#vim
+*.swp
+*.swo
+
+#File-based project format:
+*.iws
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+*.iml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# Eclipse Core
+.project
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+deploy/docker-local-compose.yml
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# test Controller
+api/src/application/modules/V1/controllers/Test.php
+api/src/application/modules/V2/controllers/Test.php
+
+account.data 

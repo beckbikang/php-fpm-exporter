@@ -164,12 +164,14 @@ func (c *collector) Collect(ch chan<- prometheus.Metric) {
 		c.up,
 		prometheus.GaugeValue,
 		up,
+		c.exporter.application,
 	)
 
 	ch <- prometheus.MustNewConstMetric(
 		c.scrapeFailures,
 		prometheus.CounterValue,
 		float64(c.failureCount),
+		c.exporter.application,
 	)
 
 	if up == 0.0 {
