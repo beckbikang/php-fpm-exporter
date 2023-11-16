@@ -20,12 +20,17 @@
 
 package zapcore
 
-import "go.uber.org/zap/internal/multierror"
+import "go.uber.org/multierr"
 
 type hooked struct {
 	Core
 	funcs []func(Entry) error
 }
+
+var (
+	_ Core           = (*hooked)(nil)
+	_ leveledEnabler = (*hooked)(nil)
+)
 
 // RegisterHooks wraps a Core and runs a collection of user-defined callback
 // hooks each time a message is logged. Execution of the callbacks is blocking.
@@ -38,6 +43,10 @@ func RegisterHooks(core Core, hooks ...func(Entry) error) Core {
 		Core:  core,
 		funcs: funcs,
 	}
+}
+
+func (h *hooked) Level() Level {
+	return LevelOf(h.Core)
 }
 
 func (h *hooked) Check(ent Entry, ce *CheckedEntry) *CheckedEntry {
@@ -60,9 +69,9 @@ func (h *hooked) With(fields []Field) Core {
 func (h *hooked) Write(ent Entry, _ []Field) error {
 	// Since our downstream had a chance to register itself directly with the
 	// CheckedMessage, we don't need to call it here.
-	var errs multierror.Error
+	var err error
 	for i := range h.funcs {
-		errs = errs.Append(h.funcs[i](ent))
+		err = multierr.Append(err, h.funcs[i](ent))
 	}
-	return errs.AsError()
+	return err
 }

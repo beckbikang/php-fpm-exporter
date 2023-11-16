@@ -1,10 +1,11 @@
 package main
 
+/*
 import (
 	"go.uber.org/zap"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 
-	exporter "beckbikang/php-fpm-exporter/php-fpm-exporter"
+	exporter "github.com/beckbikang/php-fpm-exporter"
 )
 
 func main() {
@@ -39,3 +40,4 @@ func main() {
 		logger.Fatal("failed to run exporter", zap.Error(err))
 	}
 }
+*/

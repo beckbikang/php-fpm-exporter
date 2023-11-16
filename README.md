@@ -3,7 +3,7 @@ php-fpm-exporter
 
 Export php-fpm metrics in [Prometheus](https://prometheus.io/) format.
 
-See [Releases](https://github.com/bakins/php-fpm-exporter/releases) for pre-built binaries.
+See [Releases](https://github.com/beckbikang/php-fpm-exporter/releases) for pre-built binaries.
 
 Also availible on Docker Hub [bakins/php-fpm-exporter](https://hub.docker.com/r/bakins/php-fpm-exporter/)
 
@@ -17,7 +17,7 @@ Clone this repo locally and run build:
 ```
 mkdir -p $HOME/src
 cd $HOME/src
-git clone https://github.com/bakins/php-fpm-exporter
+git clone https://github.com/beckbikang/php-fpm-exporter
 cd php-fpm-exporter
 ./script/build
 ```

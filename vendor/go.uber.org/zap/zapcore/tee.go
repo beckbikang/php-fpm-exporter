@@ -1,4 +1,4 @@
-// Copyright (c) 2016 Uber Technologies, Inc.
+// Copyright (c) 2016-2022 Uber Technologies, Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,9 +20,14 @@
 
 package zapcore
 
-import "go.uber.org/zap/internal/multierror"
+import "go.uber.org/multierr"
 
 type multiCore []Core
+
+var (
+	_ leveledEnabler = multiCore(nil)
+	_ Core           = multiCore(nil)
+)
 
 // NewTee creates a Core that duplicates log entries into two or more
 // underlying Cores.
@@ -48,6 +53,16 @@ func (mc multiCore) With(fields []Field) Core {
 	return clone
 }
 
+func (mc multiCore) Level() Level {
+	minLvl := _maxLevel // mc is never empty
+	for i := range mc {
+		if lvl := LevelOf(mc[i]); lvl < minLvl {
+			minLvl = lvl
+		}
+	}
+	return minLvl
+}
+
 func (mc multiCore) Enabled(lvl Level) bool {
 	for i := range mc {
 		if mc[i].Enabled(lvl) {
@@ -65,17 +80,17 @@ func (mc multiCore) Check(ent Entry, ce *CheckedEntry) *CheckedEntry {
 }
 
 func (mc multiCore) Write(ent Entry, fields []Field) error {
-	var errs multierror.Error
+	var err error
 	for i := range mc {
-		errs = errs.Append(mc[i].Write(ent, fields))
+		err = multierr.Append(err, mc[i].Write(ent, fields))
 	}
-	return errs.AsError()
+	return err
 }
 
 func (mc multiCore) Sync() error {
-	var errs multierror.Error
+	var err error
 	for i := range mc {
-		errs = errs.Append(mc[i].Sync())
+		err = multierr.Append(err, mc[i].Sync())
 	}
-	return errs.AsError()
+	return err
 }
