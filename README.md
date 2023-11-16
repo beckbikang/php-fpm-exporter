@@ -30,16 +30,18 @@ Running
 =======
 
 ```
-./php-fpm-exporter --help
-php-fpm metrics exporter
-
-Usage:
-  php-fpm-exporter [flags]
+./main
+usage: main [<flags>]
 
 Flags:
-      --addr string       listen address for metrics handler (default "127.0.0.1:8080")
-      --endpoint string   url for php-fpm status (default "http://127.0.0.1:9000/status")
-      --fastcgi string    fastcgi url. If this is set, fastcgi will be used instead of HTTP
+  -h, --help                   Show context-sensitive help (also try --help-long and --help-man).
+      --addr="127.0.0.1:8080"  listen address for metrics handler
+      --application="default"  application name
+      --endpoint="http://127.0.0.1:9000/status"  
+                               url for php-fpm status
+      --fastcgi=FASTCGI        fastcgi url. If this is set, fastcgi will be used instead of HTTP
+      --web.telemetry-path="/metrics"  
+                               Path under which to expose metrics. Cannot be 
 ```
 
 When running, a simple healthcheck is available on `/healthz`
