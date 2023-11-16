@@ -192,32 +192,41 @@ func (c *collector) Collect(ch chan<- prometheus.Metric) {
 		case "accepted conn":
 			desc = c.acceptedConn
 			valueType = prometheus.CounterValue
+			labels = append(labels, c.exporter.application)
 		case "listen queue":
 			desc = c.listenQueue
 			valueType = prometheus.GaugeValue
+			labels = append(labels, c.exporter.application)
 		case "max listen queue":
 			desc = c.maxListenQueue
 			valueType = prometheus.CounterValue
+			labels = append(labels, c.exporter.application)
 		case "listen queue len":
 			desc = c.listenQueueLength
 			valueType = prometheus.GaugeValue
+			labels = append(labels, c.exporter.application)
 		case "idle processes":
 			desc = c.phpProcesses
 			valueType = prometheus.GaugeValue
 			labels = append(labels, "idle")
+			labels = append(labels, c.exporter.application)
 		case "active processes":
 			desc = c.phpProcesses
 			valueType = prometheus.GaugeValue
 			labels = append(labels, "active")
+			labels = append(labels, c.exporter.application)
 		case "max active processes":
 			desc = c.maxActiveProcesses
 			valueType = prometheus.CounterValue
+			labels = append(labels, c.exporter.application)
 		case "max children reached":
 			desc = c.maxChildrenReached
 			valueType = prometheus.CounterValue
+			labels = append(labels, c.exporter.application)
 		case "slow requests":
 			desc = c.slowRequests
 			valueType = prometheus.CounterValue
+			labels = append(labels, c.exporter.application)
 		default:
 			continue
 		}

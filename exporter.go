@@ -80,6 +80,15 @@ func SetAddress(addr string) func(*Exporter) error {
 	}
 }
 
+// SetAddress creates a function that will set the listening address.
+// Generally only used when create a new Exporter.
+func SetApplication(application string) func(*Exporter) error {
+	return func(e *Exporter) error {
+		e.application = application
+		return nil
+	}
+}
+
 // SetEndpoint creates a function that will set the URL endpoint to contact
 // php-fpm.
 // Generally only used when create a new Exporter.
