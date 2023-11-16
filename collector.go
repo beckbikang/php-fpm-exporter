@@ -44,16 +44,16 @@ func newFuncMetric(metricName string, docString string, labels []string) *promet
 func (e *Exporter) newCollector() *collector {
 	return &collector{
 		exporter:           e,
-		up:                 newFuncMetric("up", "able to contact php-fpm", nil),
-		acceptedConn:       newFuncMetric("accepted_connections_total", "Total number of accepted connections", nil),
-		listenQueue:        newFuncMetric("listen_queue_connections", "Number of connections that have been initiated but not yet accepted", nil),
-		maxListenQueue:     newFuncMetric("listen_queue_max_connections", "Max number of connections the listen queue has reached since FPM start", nil),
-		listenQueueLength:  newFuncMetric("listen_queue_length_connections", "The length of the socket queue, dictating maximum number of pending connections", nil),
-		phpProcesses:       newFuncMetric("processes_total", "process count", []string{"state"}),
-		maxActiveProcesses: newFuncMetric("active_max_processes", "Maximum active process count", nil),
-		maxChildrenReached: newFuncMetric("max_children_reached_total", "Number of times the process limit has been reached", nil),
-		slowRequests:       newFuncMetric("slow_requests_total", "Number of requests that exceed request_slowlog_timeout", nil),
-		scrapeFailures:     newFuncMetric("scrape_failures_total", "Number of errors while scraping php_fpm", nil),
+		up:                 newFuncMetric("up", "able to contact php-fpm", []string{"application"}),
+		acceptedConn:       newFuncMetric("accepted_connections_total", "Total number of accepted connections", []string{"application"}),
+		listenQueue:        newFuncMetric("listen_queue_connections", "Number of connections that have been initiated but not yet accepted", []string{"application"}),
+		maxListenQueue:     newFuncMetric("listen_queue_max_connections", "Max number of connections the listen queue has reached since FPM start", []string{"application"}),
+		listenQueueLength:  newFuncMetric("listen_queue_length_connections", "The length of the socket queue, dictating maximum number of pending connections", []string{"application"}),
+		phpProcesses:       newFuncMetric("processes_total", "process count", []string{"state", "application"}),
+		maxActiveProcesses: newFuncMetric("active_max_processes", "Maximum active process count", []string{"application"}),
+		maxChildrenReached: newFuncMetric("max_children_reached_total", "Number of times the process limit has been reached", []string{"application"}),
+		slowRequests:       newFuncMetric("slow_requests_total", "Number of requests that exceed request_slowlog_timeout", []string{"application"}),
+		scrapeFailures:     newFuncMetric("scrape_failures_total", "Number of errors while scraping php_fpm", []string{"application"}),
 	}
 }
 
