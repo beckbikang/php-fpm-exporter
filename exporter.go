@@ -12,6 +12,7 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/collectors"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"go.uber.org/zap"
 	"golang.org/x/sync/errgroup"
@@ -20,6 +21,7 @@ import (
 // Exporter handles serving the metrics
 type Exporter struct {
 	addr            string
+	application     string
 	endpoint        *url.URL
 	fcgiEndpoint    *url.URL
 	logger          *zap.Logger
@@ -137,8 +139,9 @@ func (e *Exporter) Run() error {
 	if err := prometheus.Register(c); err != nil {
 		return errors.Wrap(err, "failed to register metrics")
 	}
-	prometheus.Unregister(prometheus.NewProcessCollector(os.Getpid(), ""))
-	prometheus.Unregister(prometheus.NewGoCollector())
+
+	prometheus.Unregister(collectors.NewProcessCollector(collectors.ProcessCollectorOpts{}))
+	prometheus.Unregister(collectors.NewGoCollector())
 
 	http.HandleFunc("/healthz", e.healthz)
 	http.Handle(e.metricsEndpoint, promhttp.Handler())
