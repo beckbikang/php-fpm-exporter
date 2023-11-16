@@ -2,8 +2,8 @@ package main
 
 /*
 import (
+	kingpin "github.com/alecthomas/kingpin"
 	"go.uber.org/zap"
-	kingpin "gopkg.in/alecthomas/kingpin.v2"
 
 	exporter "github.com/beckbikang/php-fpm-exporter"
 )

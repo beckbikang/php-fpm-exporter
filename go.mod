@@ -1,4 +1,4 @@
-module php-fpm-exporter
+module github.com/beckbikang/php-fpm-exporter
 
 go 1.21.0
 
