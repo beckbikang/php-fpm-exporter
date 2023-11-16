@@ -4,8 +4,8 @@ github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 h1:JYp7IbQjafo
 github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/units v0.0.0-20211218093645-b94a6e3cc137 h1:s6gZFSlWYmbqAuRjVTiNNhvNRfY2Wxp9nhfyel4rklc=
 github.com/alecthomas/units v0.0.0-20211218093645-b94a6e3cc137/go.mod h1:OMCwj8VM1Kc9e19TLln2VL61YJF0x1XFtfdL4JdbSyE=
-github.com/beckbikang/php-fpm-exporter v0.0.0-20231116084116-c2114ba7b07e h1:yEShqlauMj9icM6/QDJuUWsJ/lrdTqTWE78A+A/fFJw=
-github.com/beckbikang/php-fpm-exporter v0.0.0-20231116084116-c2114ba7b07e/go.mod h1:5JCgrMtA0caXTQ+553fPgDig46cQ7+jgZWueMg36QHE=
+github.com/beckbikang/php-fpm-exporter v0.0.0-20231116085949-b0dfb815c763 h1:8j9SdhQjuQ4l2vh4v3KVn5OlS8Uzcm7r9+Owjo3Hu3A=
+github.com/beckbikang/php-fpm-exporter v0.0.0-20231116085949-b0dfb815c763/go.mod h1:5JCgrMtA0caXTQ+553fPgDig46cQ7+jgZWueMg36QHE=
 github.com/beorn7/perks v1.0.1 h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM=
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
 github.com/cespare/xxhash/v2 v2.2.0 h1:DC2CZ1Ep5Y4k3ZQ899DldepgrayRUGE6BBZ/cd9Cj44=

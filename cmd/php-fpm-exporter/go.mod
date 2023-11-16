@@ -4,7 +4,7 @@ go 1.21.0
 
 require (
 	github.com/alecthomas/kingpin v2.2.6+incompatible
-	github.com/beckbikang/php-fpm-exporter v0.0.0-20231116084116-c2114ba7b07e
+	github.com/beckbikang/php-fpm-exporter v0.0.0-20231116085949-b0dfb815c763
 	go.uber.org/zap v1.26.0
 )
 
