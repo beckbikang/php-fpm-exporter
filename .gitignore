@@ -29,6 +29,7 @@ api/src/sfDataEvent
 api/src/newEvent
 .vscode
 
+cmd/php-fpm-exporter/main
 #vim
 *.swp
 *.swo
