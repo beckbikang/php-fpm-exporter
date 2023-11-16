@@ -1,6 +1,5 @@
 package main
 
-/*
 import (
 	kingpin "github.com/alecthomas/kingpin"
 	"go.uber.org/zap"
@@ -40,4 +39,3 @@ func main() {
 		logger.Fatal("failed to run exporter", zap.Error(err))
 	}
 }
-*/
