@@ -1,6 +1,8 @@
 php-fpm-exporter
 ================
 
+增加了application参数
+
 Export php-fpm metrics in [Prometheus](https://prometheus.io/) format.
 
 See [Releases](https://github.com/beckbikang/php-fpm-exporter/releases) for pre-built binaries.
